@@ -1,0 +1,200 @@
+<style>
+.tool-md-preview, .export-container {
+  width: min(100%, 900px);
+  max-width: 900px;
+  min-height: 100%;
+  margin-inline: auto;
+  padding: clamp(32px, 5vw, 68px) clamp(22px, 5vw, 58px);
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.tool-md-preview img, .export-container img,
+.tool-md-preview video, .export-container video,
+.tool-md-preview svg, .export-container svg { max-width: 100%; height: auto; }
+.tool-md-preview pre, .export-container pre {
+  max-width: 100%;
+  margin: 1.4em 0;
+  padding: 1.05em 1.2em;
+  overflow-x: auto;
+  box-sizing: border-box;
+  color: var(--html-code-text) !important;
+  font-size: 0.9em;
+  line-height: 1.62;
+  tab-size: 2;
+}
+.tool-md-preview pre code, .export-container pre code {
+  display: block;
+  min-width: max-content;
+  border: 0;
+  background: transparent !important;
+  color: var(--html-code-text) !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+.tool-md-preview table, .export-container table { max-width: 100%; overflow-x: auto; }
+@media (max-width: 640px) {
+  .tool-md-preview, .export-container { padding: 28px 20px; }
+  .tool-md-preview pre, .export-container pre { margin-inline: -4px; padding: 0.9em 1em; }
+}
+
+body { margin: 0; background: #f6f8fa; color: #1f2328; }
+.tool-md-preview, .export-container {
+  background: #ffffff;
+  color: #1f2328;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  --html-code-text: #24292f;
+  --html-code-keyword: #cf222e;
+  --html-code-title: #8250df;
+  --html-code-string: #0a3069;
+  --html-code-number: #0550ae;
+  --html-code-comment: #6e7781;
+}
+h1, h2, h3, h4 { color: #1f2328; font-weight: 650; line-height: 1.25; }
+h1 { margin-bottom: 0.7em; padding-bottom: 0.32em; border-bottom: 1px solid #d8dee4; font-size: 2em; }
+h2 { margin-top: 1.75em; padding-bottom: 0.3em; border-bottom: 1px solid #d8dee4; font-size: 1.5em; }
+h3 { margin-top: 1.5em; font-size: 1.25em; }
+a { color: #0969da; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+blockquote { margin: 1em 0; padding: 0 1em; border-left: 0.25em solid #d0d7de; color: #59636e; }
+code { border-radius: 6px; background: #eff1f3; color: #1f2328; padding: 0.18em 0.38em; font-size: 0.88em; }
+pre { border: 1px solid #d8dee4; border-radius: 8px; background: #f6f8fa; box-shadow: none; }
+pre code { background: transparent; padding: 0; }
+table { display: table; width: 100%; border-spacing: 0; border-collapse: collapse; }
+th { background: #f6f8fa; font-weight: 650; }
+th, td { border: 1px solid #d0d7de; padding: 0.55em 0.8em; }
+tr:nth-child(2n) { background: #f6f8fa; }
+hr { height: 1px; border: 0; background: #d8dee4; }
+img { border-radius: 6px; }
+
+.tool-md-preview pre .hljs-keyword, .export-container pre .hljs-keyword,
+.tool-md-preview pre .hljs-selector-tag, .export-container pre .hljs-selector-tag,
+.tool-md-preview pre .hljs-literal, .export-container pre .hljs-literal { color: var(--html-code-keyword) !important; }
+.tool-md-preview pre .hljs-title, .export-container pre .hljs-title,
+.tool-md-preview pre .hljs-title.function_, .export-container pre .hljs-title.function_,
+.tool-md-preview pre .hljs-built_in, .export-container pre .hljs-built_in { color: var(--html-code-title) !important; }
+.tool-md-preview pre .hljs-string, .export-container pre .hljs-string,
+.tool-md-preview pre .hljs-attr, .export-container pre .hljs-attr,
+.tool-md-preview pre .hljs-name, .export-container pre .hljs-name { color: var(--html-code-string) !important; }
+.tool-md-preview pre .hljs-number, .export-container pre .hljs-number,
+.tool-md-preview pre .hljs-symbol, .export-container pre .hljs-symbol,
+.tool-md-preview pre .hljs-variable, .export-container pre .hljs-variable { color: var(--html-code-number) !important; }
+.tool-md-preview pre .hljs-comment, .export-container pre .hljs-comment,
+.tool-md-preview pre .hljs-quote, .export-container pre .hljs-quote { color: var(--html-code-comment) !important; font-style: italic; }
+.tool-md-preview pre .hljs-params, .export-container pre .hljs-params,
+.tool-md-preview pre .hljs-punctuation, .export-container pre .hljs-punctuation { color: var(--html-code-text) !important; }
+</style>
+<div class="export-container">
+<div style="background-color: blackite; padding: 10px; border-radius: 5px;">
+<span style="color: white;">
+
+
+<h2 id="seoul-taco-menu">SEOUL TACO MENU</h2><p>6665 Delmar Blvd. Universiy City |
+(314) 863-1148</p>
+<img src="storefront.jpg" alt="Food" width="600" height="400">
+<span style="color: white;">
+
+<h2 id="entre">Entre</h2><h4 id="taco-2-50">Taco - $2.50</h4><img src="taco.png" alt="Taco" width="300" height="200">
+
+<p><em>With Korean salad, green onion, Seoul sauce, crushed sesame seeds, and a wedge of lime</em></p>
+<h4 id="burrito-8">Burrito - $8</h4><img src="burrito.jpg" alt="Burrito" width="300" height="200">
+
+<p><em>With kimchi fried rice, lettuce, cheese, carrots, green onions, sour cream, and Seoul sauce</em></p>
+<h4 id="gogi-bowl-7">Gogi Bowl - $7</h4><img src="gogi bowl.png" alt="Gogi Bowl" width="300" height="200">
+
+<p><em>With rice, fresh veggies, fried egg, carrots, green , sesame oil, and spicy Gochujang pepper sauce (fried rice +<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">(</mo><mi>b</mi><mi>r</mi><mi>o</mi><mi>w</mi><mi>n</mi><mi>r</mi><mi>i</mi><mi>c</mi><mi>e</mi><mo>+</mo></mrow><annotation encoding="application/x-tex">1) (brown rice +</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mopen">(</span><span class="mord mathnormal">b</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">o</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal">ce</span><span class="mord">+</span></span></span></span>0.50)</em></p>
+<h4 id="quesadilla-8">Quesadilla - $8</h4><p><em>With jack and cheddar cheese, lettuce, sour cream, and Seoul sauce</em></p>
+<table>
+<thead>
+<tr>
+<th>Choice of Protien</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bulgogi Steak</td>
+</tr>
+<tr>
+<td>Chicken</td>
+</tr>
+<tr>
+<td>Spicy Pork</td>
+</tr>
+<tr>
+<td>Tofu</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Sides</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kimchi Slaw</td>
+<td align="center">$2</td>
+</tr>
+<tr>
+<td>OG Kimchi</td>
+<td align="center">$2</td>
+</tr>
+<tr>
+<td>Chips and Queso</td>
+<td align="center">$4</td>
+</tr>
+<tr>
+<td>Seaonal Soup</td>
+<td align="center">$5.75</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Extras</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Double Meat</td>
+<td align="center">$4</td>
+</tr>
+<tr>
+<td>Extra Meat</td>
+<td align="center">$2</td>
+</tr>
+<tr>
+<td>Egg</td>
+<td align="center">$1</td>
+</tr>
+<tr>
+<td>Sour Cream</td>
+<td align="center">$0.75</td>
+</tr>
+<tr>
+<td>Cheese</td>
+<td align="center">$0.75</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Drinks</th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Bottled Water</td>
+<td align="center">$1.50</td>
+</tr>
+<tr>
+<td>Fountain Soda</td>
+<td align="center">$2</td>
+</tr>
+<tr>
+<td>Bottled Soda</td>
+<td align="center">$2.50</td>
+</tr>
+</tbody></table>
+<p>For more information, catering information, or to let us know how were doing...
+Follow us @SEOULTACO</p>
+</span></span></div>
+</div>
