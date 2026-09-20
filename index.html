@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <body style="background-image: url('matrix.gif'); background-size: cover; background-repeat: repeat-y;">
     <style>
+        #bg-video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  object-fit: cover; /* Prevents stretching or distortion */
+}
+
+/* Ensure page content sits on top of the video */
+.content {
+  position: relative;
+  z-index: 1;
+  color: #ffffff; /* Adjust text color for readability */
+}
+        a:link {
+            color: green;
+        }
+
+        /* Visited link */
+        a:visited {
+            color: green;
+        }
+        body {background-image;}
         h2, h1, ul {
-                font-family: monospace ;
+                font-family: monospace ; color: white;
             }
-        h1 {text-align: center;}
+        h1 {text-align: center; color: white;}
         img, audio {display: block;
         margin-left: auto;
         margin-right: auto;}
@@ -16,12 +44,17 @@
     <title>Oliver's Class Homepage</title>
 </head>
 <body>
+    <video autoplay muted loop playsinline id="bg-video">
+  <source src="matrix.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
     <h1>Oliver's Class Homepage</h1>
-    <img src="breakdance.gif" height="200">
+
     <p></p>
     <audio controls src="action.mp3"></audio>
     <p></p>
-    <div style="background-color: #e4e4e4;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
     <h2>Exercises</h2>
     <ul>
         <li><a href="profile.html">Profile</a></li>
@@ -30,7 +63,7 @@
     </div>
     <p></p>
 
-    <div style="background-color: #e4e4e4;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
     <h2>Reading & Media Responses</h2>
     </ul>
     <ul>
@@ -40,7 +73,7 @@
     </div>
     </ul>
 <p></p>
-    <div style="background-color: #e4e4e4;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
     <h2>Projects</h2>
     <ul>
     <li><a href="project1\index.html">P1. Restaurant or Cafe Variations</a></li>
