@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .scene {
+      position: relative;
+      height: 100vh;
+      width: auto;
+      aspect-ratio: 16 / 9;
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+     /* Target the link container so it keeps the exact same position */
+    .hands-image {
+      position: absolute;
+      top: 35%;   
+      left: 4.2%;  
+      width: 90%; 
+    }
+
+    /* Target the link container so it keeps the exact same position */
+    .sign-link {
+      position: absolute;
+      top: 35%;   
+      left: 51%;  
+      width: 6%; 
+    }
+
+    /* Make the image fill the link container */
+    .sign-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer; /* Changes mouse cursor to a pointer when hovering over the sign */
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="your-audio-file.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="scene">
+    <img src=".jpeg" class="bg-image" alt="Background">
+     <img src="hands.png" class="hands-image" alt="Background">
+    <!-- Wrap the sign image in an anchor tag pointing to your target page -->
+    <a href="nextpage.html" class="sign-link">
+
+    </a>
+  </div>
+
+</body>
+</html>
