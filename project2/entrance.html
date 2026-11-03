@@ -25,15 +25,28 @@
       display: block;
     }
 
-    /* Target the link container so it keeps the exact same position */
-    .wizard-image {
+    /* Target the wizard link container to keep its exact position */
+    .wizard-link {
       position: absolute;
-      top: 40%;   
-      left: 64.2%;  
-      width: 22%; 
+      top: 29%;   
+      left: 66.2%;  
+      width: 20%; 
     }
 
-    /* Target the link container so it keeps the exact same position */
+    /* Make the wizard image fill the link container */
+    .wizard-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer; /* Changes mouse cursor to a pointer when hovering over the wizard */
+    }
+
+    /* Changes the wizard image when hovered (and changes back automatically when mouse leaves) */
+    .wizard-link:hover img {
+      content: url("dreamwizard-diolaugue.png"); /* Replace with your second wizard image file name */
+    }
+
+    /* Target the door link container so it keeps the exact same position */
     .door-link {
       position: absolute;
       top: 21.5%;   
@@ -52,7 +65,7 @@
     /* Changes the door image to open when hovered */
     .door-link:hover img {
       content: url("entrancedoor-open.png");
-      transform: translateY(4%)
+      transform: translateY(4%);
     }
   </style>
 </head>
@@ -64,10 +77,14 @@
 
   <div class="scene">
     <img src="entrancebackground2.jpg" class="bg-image" alt="Background">
+    
     <a href="nextpage.html" class="door-link">
-    <img src="entrancedoor-closed.png" alt="Door">
+      <img src="entrancedoor-closed.png" alt="Door">
     </a>
-    <img src="dreamwizard.png"class="wizard-image" alt="Door">
+    
+    <a href="#" class="wizard-link">
+      <img src="dreamwizard.png" alt="Wizard">
+    </a>
   </div>
 
 </body>
