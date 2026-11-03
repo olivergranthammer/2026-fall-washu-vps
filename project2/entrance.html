@@ -46,6 +46,27 @@
       content: url("dreamwizard-diolaugue.png");
     }
 
+     /* Target the wizard link container to keep its exact position */
+    .cat-link {
+      position: absolute;
+      top: 76%;   
+      left: 12.2%;  
+      width: 16%; 
+    }
+
+    /* Make the wizard image fill the link container */
+    .cat-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer; /* Changes mouse cursor to a pointer when hovering over the wizard */
+    }
+
+    /* Changes the wizard image when hovered (and changes back automatically when mouse leaves) */
+    .cat-link:hover img {
+      content: url("blackcat-diolaugue.png");
+    }
+
     /* Target the door link container so it keeps the exact same position */
     .door-link {
       position: absolute;
@@ -84,6 +105,9 @@
     
     <a href="#" class="wizard-link">
       <img src="dreamwizard.png" alt="Wizard">
+    </a>
+     <a href="#" class="cat-link">
+      <img src="blackcat.png" alt="Wizard">
     </a>
   </div>
 
