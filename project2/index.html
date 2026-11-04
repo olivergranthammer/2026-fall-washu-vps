@@ -25,7 +25,6 @@
       display: block;
     }
 
-     /* Target the link container so it keeps the exact same position*/
     .hands-image {
       position: absolute;
       top: 35%;   
@@ -41,28 +40,33 @@
       width: 6%; 
     }
 
-    /* Make the image fill the link container */
+    /* Make the image fill the lnk container */
     .sign-link img {
       width: 100%;
       height: auto;
       display: block;
-      cursor: pointer; /* Changes mouse cursor to a pointer when hovering over the sign */
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
   <audio autoplay loop>
+    
     <source src="liquidsmooth.mp3" type="audio/mpeg">
+
   </audio>
 
   <div class="scene">
+
     <img src="menubackground.jpg" class="bg-image" alt="Background">
-     <img src="hands.png" class="hands-image" alt="Background">
-    <!-- Wrap the sign image in an anchor tag pointing to your target page -->
+
+    <img src="hands.png" class="hands-image" alt="Background">
+
     <a href="entrance.html" class="sign-link">
       <img src="sign.png" alt="Sign">
     </a>
+
   </div>
 
 </body>
