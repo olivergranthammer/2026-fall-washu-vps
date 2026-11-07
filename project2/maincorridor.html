@@ -25,12 +25,63 @@
       display: block;
     }
 
+  .fr-door-link {
+      position: absolute;
+      top: 44%;   
+      left: 74.5%;  
+      width: 4.5%; 
+    }
+
+    /* Make the door image fill the link container */
+    .fr-door-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+    
+      .fl-door-link {
+      position: absolute;
+      top: 43.7%;   
+      left: 20.2%;  
+      width: 4.7%; 
+    }
+
+    /* Make the door image fill the link container */
+    .fl-door-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
 
   <div class="scene">
     <img src="corridorbackground.jpg" class="bg-image" alt="Background">
+
+     <a href="maincorridor.html" class="fr-door-link">
+      <img src="door.FR.png" alt="Door">
+    </a>
+
+     <a href="maincorridor.html" class="fl-door-link">
+      <img src="door.FL.png" alt="Door">
+    </a>
+
+     <a href="maincorridor.html" class="door-link">
+      <img src="door.MR.png" alt="Door">
+    </a>
+
+         <a href="maincorridor.html" class="door-link">
+      <img src="door.ML.png" alt="Door">
+    </a>
+    
+         <a href="maincorridor.html" class="door-link">
+      <img src="door.B.png" alt="Door">
+    </a>
+
   </div>
 
 </body>
