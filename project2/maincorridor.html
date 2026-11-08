@@ -24,6 +24,27 @@
       height: 100%;
       display: block;
     }
+        /* Target the wizard link container to keep its exact position */
+    .barrel-link {
+      position: absolute;
+      top:58.3%;   
+      left: 57.2%;  
+      width: 4.5%; 
+    }
+
+    /* Make the wizard image fill the link container */
+    .barrel-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Changes the wizard image when hovered */
+    .barrel-link:hover img {
+      content: url("barrel-open.png");
+    }
+
 
   .fr-door-link {
       position: absolute;
@@ -123,6 +144,11 @@
          <a href="maincorridor.html" class="b-door-link">
       <img src="door.B.png" alt="Door">
     </a>
+     
+        <a href="maincorridor.html" class="barrel-link">
+      <img src="barrel-closed.png" alt="Door">
+    </a>
+
 
   </div>
 
