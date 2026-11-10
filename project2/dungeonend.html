@@ -19,10 +19,12 @@
       aspect-ratio: 16 / 9;
     }
 
+    /* Used for the video element acting as your looping animation */
     .bg-image {
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover;
     }
 
     .backward-link {
@@ -38,8 +40,8 @@
       height: auto;
       display: block;
       cursor: pointer;
-    }
-    /* Target the wizard link container to keep its exact position */
+}
+    /* Target the knight link container to keep its exact position */
     .knight-link {
       position: absolute;
       top: 10%;   
@@ -47,21 +49,24 @@
       width: 20%; 
     }
 
+    .forward-link {
+      position: absolute;
+      /* Add positioning for forward-link if needed */
+    }
   </style>
 </head>
 <body>
 
-    
-    <audio autoplay loop>
-    
-    <source src="rah.mp3" type="audio/mpeg">
-
-  </audio>
+  <!-- Audio element with loop enabled -->
+  <audio id="bg-audio" src="rah.mp3" preload="auto" loop></audio>
 
   <div class="scene">
-    <img src="skeletonsheild.gif" class="bg-image" alt="Background">
+    <!-- Added the 'loop' attribute to the video tag -->
+    <video class="bg-image" autoplay muted playsinline loop id="bg-video">
+      <source src="skeleton.mp4" type="video/mp4">
+    </video>
 
-     <a href="next.html" class="forward-link">
+    <a href="next.html" class="forward-link">
       <img src="forward.png" alt="arrow">
     </a>
 
@@ -69,6 +74,31 @@
       <img src="backward.png" alt="arrow">
     </a>
   </div>
+
+  <script>
+    const video = document.getElementById('bg-video');
+    const audio = document.getElementById('bg-audio');
+
+    // Attempt to play audio alongside video, handling browser autoplay policies
+    window.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+      }
+    }, { once: true });
+
+    // Automatically trigger play on load
+    video.play().then(() => {
+      audio.play().catch(() => {
+        console.log("Waiting for user interaction to play audio.");
+      });
+    });
+
+    // Cleanly restart the audio precisely when the video triggers its loop event
+    video.addEventListener('loop', () => {
+      audio.currentTime = 0;
+      audio.play();
+    });
+  </script>
 
 </body>
 </html>
