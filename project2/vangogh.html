@@ -9,85 +9,168 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      overflow: hidden; /* Prevents vertical scroll, allows horizontal if needed */
     }
 
+    /* Locks the scene height to full viewport height, with a fixed 16:9 width based on that height */
     .scene {
       position: relative;
       height: 100vh;
-      width: auto;
-      aspect-ratio: 16 / 9;
+      width: calc(100vh * 16 / 9); /* Always maintains exact 16:9 ratio based on full browser height */
+      flex-shrink: 0;             /* Prevents the browser from squishing it when thin */
     }
 
     .bg-image {
       width: 100%;
       height: 100%;
       display: block;
+      object-fit: cover;
     }
 
-  .forward-link {
+    .forward-link {
       position: absolute;
       top: 70%;   
       left: 50%;  
       width: 4.5%; 
+      z-index: 5;
     }
 
-    /* Make the door image fill the link container */
     .forward-link img {
       width: 100%;
       height: auto;
       display: block;
       cursor: pointer;
     }
+
     .backward-link {
       position: absolute;
       top: 85%;   
       left: 50%;  
       width: 4.5%; 
+      z-index: 5;
     }
 
-    /* Make the door image fill the link container */
     .backward-link img {
       width: 100%;
       height: auto;
       display: block;
       cursor: pointer;
     }
-    /* Target the wizard link container to keep its exact position */
-    .knight-link {
+
+    /* Base shared styles for all paintings */
+    .painting-link {
       position: absolute;
-      top: 10%;   
-      left: 12.2%;  
-      width: 20%; 
+      cursor: pointer;
+      z-index: 10;
     }
 
-    /* Make the wizard image fill the link container */
-    .knight-link img {
+    .painting-link img {
       width: 100%;
       height: auto;
       display: block;
-      cursor: pointer;
+      transition: transform 0.3s ease;
     }
 
-    /* Changes the wizard image when hovered */
-    .knight-link:hover img {
-      content: url("knightdiolaugue.png");
+    /* INDIVIDUAL POSITIONS */
+    .painting-1 { top: 14.5%; left: 3.6%; width: 15.4%; }
+    .painting-2 { top: 59%;   left: 3.7%; width: 15%; }
+    .painting-3 { top: 32.4%; left: 22.7%; width: 25%; }
+    .painting-4 { top: 32%;   left: 50.5%; width: 25%; }
+    .painting-5 { top: 27.4%; left: 78.2%; width: 19.5%; }
+
+    /* DARK BACKDROP OVERLAY */
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 50;
     }
 
+    /* WHEN ACTIVE */
+    .scene.active .backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .scene.active .painting-link:not(.is-zoomed) {
+      opacity: 0; 
+    }
+
+    .scene.active .painting-link.is-zoomed {
+      position: absolute;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%);
+      width: auto !important;
+      z-index: 100;
+    }
+
+    .scene.active .painting-link.is-zoomed img {
+      height: 90vh;
+      width: auto;
+      max-width: 80vw;
+      object-fit: contain;
+    }
   </style>
 </head>
 <body>
 
-  <div class="scene">
+  <div class="scene" id="scene">
     <img src="vangoghbackground.jpg" class="bg-image" alt="Background">
+
+    <div class="backdrop" id="backdrop"></div>
 
     <a href="maincorridor.html" class="backward-link">
       <img src="backward.png" alt="arrow">
     </a>
-  <a href="#" class="knight-link">
-      <img src="kniht.png" alt="Wizard">
+
+    <a href="#" class="painting-link painting-1" data-painting>
+      <img src="vangoghportrait.png" alt="Painting 1">
     </a>
+
+    <a href="#" class="painting-link painting-2" data-painting>
+      <img src="vangoghshoes.png" alt="Painting 2">
+    </a>
+
+    <a href="#" class="painting-link painting-3" data-painting>
+      <img src="vangogholive.png" alt="Painting 3">
+    </a>
+
+    <a href="#" class="painting-link painting-4" data-painting>
+      <img src="vangoghbedroom.png" alt="Painting 4">
+    </a>
+
+    <a href="#" class="painting-link painting-5" data-painting>
+      <img src="vangoghassylum.png" alt="Painting 5">
+    </a>
+
   </div>
+
+  <script>
+    const scene = document.getElementById('scene');
+    const paintings = document.querySelectorAll('[data-painting]');
+    const backdrop = document.getElementById('backdrop');
+
+    paintings.forEach(painting => {
+      painting.addEventListener('click', (e) => {
+        e.preventDefault();
+        paintings.forEach(p => p.classList.remove('is-zoomed'));
+        painting.classList.add('is-zoomed');
+        scene.classList.add('active');
+      });
+    });
+
+    backdrop.addEventListener('click', () => {
+      scene.classList.remove('active');
+      paintings.forEach(p => p.classList.remove('is-zoomed'));
+    });
+  </script>
 
 </body>
 </html>
