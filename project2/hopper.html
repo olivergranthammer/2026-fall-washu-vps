@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden; /* Prevents vertical scroll, allows horizontal if needed */
+    }
+
+    /* Locks the scene height to full viewport height, with a fixed 16:9 width based on that height */
+    .scene {
+      position: relative;
+      height: 100vh;
+      width: calc(100vh * 16 / 9); /* Always maintains exact 16:9 ratio based on full browser height */
+      flex-shrink: 0;             /* Prevents the browser from squishing it when thin */
+    }
+
+    .bg-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .forward-link {
+      position: absolute;
+      top: 70%;   
+      left: 50%;  
+      width: 4.5%; 
+      z-index: 5;
+    }
+
+    .forward-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    .backward-link {
+      position: absolute;
+      top: 85%;   
+      left: 50%;  
+      width: 4.5%; 
+      z-index: 5;
+    }
+
+    .backward-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Base shared styles for all paintings */
+    .painting-link {
+      position: absolute;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .painting-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    /* INDIVIDUAL POSITIONS */
+    .painting-1 { top: 11.9%; left: 10.8%; width: 11.3%; }
+    .painting-2 { top: 11.5%;   left: 33.7%; width: 19.6%; }
+    .painting-3 { top: 12%; left: 64.4%; width: 26.3%; }
+    .painting-4 { top: 52.5%;   left: 16.9%; width: 32%; }
+    .painting-5 { top: 52.7%; left: 59.7%; width: 22.5%; }
+
+    /* DARK BACKDROP OVERLAY */
+    .backdrop {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 50;
+    }
+
+    /* WHEN ACTIVE */
+    .scene.active .backdrop {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .scene.active .painting-link:not(.is-zoomed) {
+      opacity: 0; 
+    }
+
+    .scene.active .painting-link.is-zoomed {
+      position: absolute;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%);
+      width: auto !important;
+      z-index: 100;
+    }
+
+    .scene.active .painting-link.is-zoomed img {
+      height: 90vh;
+      width: auto;
+      max-width: 80vw;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene" id="scene">
+    <img src="exhibitbackground.jpg" class="bg-image" alt="Background">
+
+    <div class="backdrop" id="backdrop"></div>
+
+    <a href="maincorridor.html" class="backward-link">
+      <img src="backward.png" alt="arrow">
+    </a>
+
+    <a href="#" class="painting-link painting-1" data-painting>
+      <img src="hopperportrait.png" alt="Painting 1">
+    </a>
+
+    <a href="#" class="painting-link painting-2" data-painting>
+      <img src="hopperroom.png" alt="Painting 2">
+    </a>
+
+    <a href="#" class="painting-link painting-3" data-painting>
+      <img src="hoppernewyork.png" alt="Painting 3">
+    </a>
+
+    <a href="#" class="painting-link painting-4" data-painting>
+      <img src="hoppersoirbleu.png" alt="Painting 4">
+    </a>
+
+    <a href="#" class="painting-link painting-5" data-painting>
+      <img src="hoppergas.png" alt="Painting 5">
+    </a>
+
+  </div>
+
+  <script>
+    const scene = document.getElementById('scene');
+    const paintings = document.querySelectorAll('[data-painting]');
+    const backdrop = document.getElementById('backdrop');
+
+    paintings.forEach(painting => {
+      painting.addEventListener('click', (e) => {
+        e.preventDefault();
+        paintings.forEach(p => p.classList.remove('is-zoomed'));
+        painting.classList.add('is-zoomed');
+        scene.classList.add('active');
+      });
+    });
+
+    backdrop.addEventListener('click', () => {
+      scene.classList.remove('active');
+      paintings.forEach(p => p.classList.remove('is-zoomed'));
+    });
+  </script>
+
+</body>
+</html>
