@@ -53,7 +53,26 @@
       display: block;
       cursor: pointer;
     }
+    /* Target the wizard link container to keep its exact position */
+    .knight-link {
+      position: absolute;
+      top: 10%;   
+      left: 12.2%;  
+      width: 20%; 
+    }
 
+    /* Make the wizard image fill the link container */
+    .knight-link img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: pointer;
+    }
+
+    /* Changes the wizard image when hovered */
+    .knight-link:hover img {
+      content: url("knightdiolaugue.png");
+    }
 
   </style>
 </head>
@@ -69,7 +88,9 @@
     <a href="dungeonstairway.html" class="backward-link">
       <img src="backward.png" alt="arrow">
     </a>
-
+  <a href="#" class="knight-link">
+      <img src="knight.png" alt="Wizard">
+    </a>
   </div>
 
 </body>
