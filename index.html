@@ -21,7 +21,7 @@
             color: #ffffff; /* Adjust text color for readability */
         }
 
-        /* On-screen timer badge */
+        /* On-screen clock badge */
         #screen-timer {
             position: fixed;
             top: 14px;
@@ -124,23 +124,21 @@
         console.log('hello world');
         console.log(2 + 2);
 
-        const timerEl = document.getElementById('screen-timer');
-        const startTime = Date.now();
+        const clockEl = document.getElementById('screen-timer');
 
-        function formatElapsed(totalSeconds) {
-            const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
-            const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
-            const secs = String(totalSeconds % 60).padStart(2, '0');
+        function formatClockTime(date) {
+            const hrs = String(date.getHours()).padStart(2, '0');
+            const mins = String(date.getMinutes()).padStart(2, '0');
+            const secs = String(date.getSeconds()).padStart(2, '0');
             return `${hrs}:${mins}:${secs}`;
         }
 
-        function updateTimer() {
-            const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
-            timerEl.textContent = `TIME: ${formatElapsed(elapsedSeconds)}`;
+        function updateClock() {
+            clockEl.textContent = `TIME: ${formatClockTime(new Date())}`;
         }
 
-        updateTimer();
-        setInterval(updateTimer, 1000);
+        updateClock();
+        setInterval(updateClock, 1000);
     </script>
 </body>
 </html>
