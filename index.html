@@ -1,25 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>>
+<head>
     <style>
         #bg-video {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
-  object-fit: cover; /* Prevents stretching or distortion */
-}
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover; /* Prevents stretching or distortion */
+        }
 
-/* Ensure page content sits on top of the video */
-.content {
-  position: relative;
-  z-index: 1;
-  color: #ffffff; /* Adjust text color for readability */
-}
+        /* Ensure page content sits on top of the video */
+        .content {
+            position: relative;
+            z-index: 1;
+            color: #ffffff; /* Adjust text color for readability */
+        }
+
+        /* On-screen timer badge */
+        #screen-timer {
+            position: fixed;
+            top: 14px;
+            right: 14px;
+            z-index: 10;
+            background-color: #000000;
+            color: #ffffff;
+            border: 2px solid #8d8c8c;
+            padding: 6px 12px;
+            font-family: monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
         a:link {
             color: green;
         }
@@ -28,75 +44,103 @@
         a:visited {
             color: green;
         }
-        body {background-image;}
+
         h2, h1, ul {
-                font-family: monospace ; color: white;
-            }
-        h1 {text-align: center; color: white;}
-        img, audio {display: block;
-        margin-left: auto;
-        margin-right: auto;}
+            font-family: monospace;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+        }
+
+        img, audio {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oliver's Class Homepage</title>
 </head>
 <body>
+    <div id="screen-timer" aria-live="polite">TIME: 00:00:00</div>
+
     <video autoplay muted loop playsinline id="bg-video">
-  <source src="matrix.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+        <source src="matrix.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <h1>OLIVERS CLASS HOMEPAGE</h1>
 
     <p></p>
     <audio controls src="action.mp3"></audio>
     <p></p>
-    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
-    <h2>EXERCISES</h2>
-    <ul>
-        <li><a href="profile.html">PROFILE</a></li>
-        <li><a href="https://www.figma.com/design/Jzg8cdvoXIfK3bViZ9Jtfv/Exercise--Poster?node-id=0-1&t=gLLbp9lONyQNsL2E-1">POSTER</a></li>
-    </ul>
+    <div style="background-color: #000000; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+        <h2>EXERCISES</h2>
+        <ul>
+            <li><a href="profile.html">PROFILE</a></li>
+            <li><a href="https://www.figma.com/design/Jzg8cdvoXIfK3bViZ9Jtfv/Exercise--Poster?node-id=0-1&t=gLLbp9lONyQNsL2E-1">POSTER</a></li>
+        </ul>
     </div>
     <p></p>
 
-    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
-    <h2>READINGS AND MEDIA RESPONSES</h2>
-    </ul>
-    <ul>
-        <li><a href="reading1.html">WHY_RESTAURANT_MENUS</a></li>
-        <li><a href="reading2.html">THE_NEW_TURING_TEST</a></li>
-        <li><a href="reading3.html">MY_WEBSITE_IS_A_SHIFTING_HOUSE</a></li>
-        <li><a href="media1.html">ENO</a></li>
-        <li><a href="reading4.html">THE_FORBIDDEN_ZONE</a></li>
-        <li><a href="media2.html">THERE_ARE_NO_GARDENS_ON_THE_INTERNET</a></li>
-        <li><a href="reading5.html">THE_COMING_AGE_OF_CALM_TECHNOLOGY</a></li>
+    <div style="background-color: #000000; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+        <h2>READINGS AND MEDIA RESPONSES</h2>
+        <ul>
+            <li><a href="reading1.html">WHY_RESTAURANT_MENUS</a></li>
+            <li><a href="reading2.html">THE_NEW_TURING_TEST</a></li>
+            <li><a href="reading3.html">MY_WEBSITE_IS_A_SHIFTING_HOUSE</a></li>
+            <li><a href="media1.html">ENO</a></li>
+            <li><a href="reading4.html">THE_FORBIDDEN_ZONE</a></li>
+            <li><a href="media2.html">THERE_ARE_NO_GARDENS_ON_THE_INTERNET</a></li>
+            <li><a href="reading5.html">THE_COMING_AGE_OF_CALM_TECHNOLOGY</a></li>
+        </ul>
     </div>
-    </ul>
     <p></p>
-    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
-    <h2>WRITING EXERCISES</h2>
-    </ul>
-    <ul>
-        <li><a href="writing1.html">RITUAL</a></li>
-        <li><a href="writing2.html">HUMAN_MADE_CREATION</a></li>
-        <li><a href="writing3.html">CHERISH_THE_DIFFICULT_WAY</a></li>
-    </div>
-    </ul>
 
-<p></p>
-    <div style="background-color: #000000;; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
-    <h2>PROJECTS</h2>
-    <ul>
-    <li><a href="project1\index.html">P1.SEOUL_TACO_MENU</a></li>
-    <li><a href="project2\index.html">P2.THE_DREAM_MUSEUM</a></li>
-    <li><a href="project\index.html">P3.STAND_BYMODE</a></li>
-    </ul>
+    <div style="background-color: #000000; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+        <h2>WRITING EXERCISES</h2>
+        <ul>
+            <li><a href="writing1.html">RITUAL</a></li>
+            <li><a href="writing2.html">HUMAN_MADE_CREATION</a></li>
+            <li><a href="writing3.html">CHERISH_THE_DIFFICULT_WAY</a></li>
+        </ul>
     </div>
+    <p></p>
+
+    <div style="background-color: #000000; padding: 10px; border-radius: 0px; border: 2px solid #8d8c8c;">
+        <h2>PROJECTS</h2>
+        <ul>
+            <li><a href="project1/index.html">P1.SEOUL_TACO_MENU</a></li>
+            <li><a href="project2/index.html">P2.THE_DREAM_MUSEUM</a></li>
+            <li><a href="project/index.html">P3.STAND_BYMODE</a></li>
+        </ul>
+    </div>
+
     <script>
         console.log('hello world');
-        console.log(2+2);
+        console.log(2 + 2);
+
+        const timerEl = document.getElementById('screen-timer');
+        const startTime = Date.now();
+
+        function formatElapsed(totalSeconds) {
+            const hrs = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const mins = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(totalSeconds % 60).padStart(2, '0');
+            return `${hrs}:${mins}:${secs}`;
+        }
+
+        function updateTimer() {
+            const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+            timerEl.textContent = `TIME: ${formatElapsed(elapsedSeconds)}`;
+        }
+
+        updateTimer();
+        setInterval(updateTimer, 1000);
     </script>
 </body>
 </html>
